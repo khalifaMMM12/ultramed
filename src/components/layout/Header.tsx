@@ -13,6 +13,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Logo } from "./Logo";
+import { SheetClose } from "@/components/ui/sheet";
 
 const mainNavItems = [
   {
@@ -102,21 +103,25 @@ export function Header() {
                 <nav className="flex flex-col gap-4 mt-4">
                   {mainNavItems.map((item) => (
                     <div key={item.title} className="flex flex-col">
-                      <Link
-                        href={item.href}
-                        className="text-lg font-medium mb-2 hover:text-primary"
-                      >
-                        {item.title}
-                      </Link>
+                      <SheetClose asChild>
+                        <Link
+                          href={item.href}
+                          className="text-lg font-medium mb-2 hover:text-primary"
+                        >
+                          {item.title}
+                        </Link>
+                      </SheetClose>
                     </div>
                   ))}
                 {/* Mobile Schedule Care CTA */}
-                    <Link
-                  href="/schedule-care"
-                  className="mt-4 bg-primary text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-primary/90 transition text-center text-lg"
-                    >
-                  Schedule Care
-                    </Link>
+                    <SheetClose asChild>
+                      <Link
+                        href="/schedule-care"
+                        className="mt-4 bg-primary text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-primary/90 transition text-center text-lg"
+                      >
+                        Schedule Care
+                      </Link>
+                    </SheetClose>
                 </nav>
               </SheetContent>
             </Sheet>
