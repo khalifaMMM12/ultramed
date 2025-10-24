@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Twitter, Instagram, Youtube, Linkedin, ArrowUp } from "lucide-react";
+import { Facebook, Twitter, Instagram, Youtube, Linkedin, ArrowUp, MessageSquare } from "lucide-react";
 import { Logo } from "./Logo";
 
 const footerLinks = [
@@ -14,6 +14,7 @@ const footerLinks = [
       { name: "Packages", href: "/packages" },
       { name: "Emergency", href: "/emergency" },
       { name: "About Us", href: "/about-us" },
+      { name: "Feedback", href: "/feedback" },
     ],
   },
 ];
@@ -89,17 +90,26 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Back to Top */}
+        {/* Back to Top and Feedback */}
         <div className="border-t border-white/20 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <button
-            aria-label="Back to top"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-1 text-primary-200 hover:text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20 bg-[#08354d] shadow-sm transition"
-              >
-            <ArrowUp className="h-4 w-4" />
-            Back to Top
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              aria-label="Back to top"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex items-center gap-1 text-primary-200 hover:text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20 bg-[#08354d] shadow-sm transition"
+            >
+              <ArrowUp className="h-4 w-4" />
+              Back to Top
+            </button>
+            <Link
+              href="/feedback"
+              className="flex items-center gap-1 text-primary-200 hover:text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20 bg-[#08354d] shadow-sm transition hover:bg-primary/20"
+            >
+              <MessageSquare className="h-4 w-4" />
+              Share Feedback
+            </Link>
           </div>
+        </div>
         <p className="text-xs text-white/60 text-center mt-4">
             &copy; {new Date().getFullYear()} UltraMed. All rights reserved.
           </p>

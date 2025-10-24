@@ -70,11 +70,11 @@ export function Header() {
                 <NavigationMenuList className="gap-2 bg-transparent shadow-none p-0">
                   {mainNavItems.map((item) => (
                     <NavigationMenuItem key={item.title}>
-                      <Link href={item.href} legacyBehavior passHref>
-                        <NavigationMenuLink className="h-10 flex items-center px-4 text-sm font-medium bg-transparent shadow-none hover:bg-primary/10 hover:text-primary transition-colors rounded-lg">
-                        {item.title}
-                        </NavigationMenuLink>
-                                </Link>
+                      <NavigationMenuLink asChild>
+                        <Link href={item.href} className="h-10 flex items-center px-4 text-sm font-medium bg-transparent shadow-none hover:bg-primary/10 hover:text-primary transition-colors rounded-lg">
+                          {item.title}
+                        </Link>
+                      </NavigationMenuLink>
                     </NavigationMenuItem>
                   ))}
                 </NavigationMenuList>
